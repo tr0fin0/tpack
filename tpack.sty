@@ -24,7 +24,7 @@
 
 
 \usepackage[utf8]{inputenc}                                         % Language Presets
-\usepackage[english, french, portuguese]{babel}                        % Text Correction
+\usepackage{iflang}                                                 % Condition based on language
 
 \usepackage{geometry, indentfirst, subcaption, subfiles, titlesec}  % General Presets
 \usepackage{titling}                                                % General Presets
@@ -622,38 +622,49 @@
 % \newtheorem{〈env name〉}{〈text 〉}[〈parent counter 〉]
 % \newtheorem{〈env name〉}[〈shared counter 〉]{〈text 〉}
 
+
+\newcommand{\tdefinition}{\IfLanguageName{english}{Definition}{\IfLanguageName{french}{Définition}{\IfLanguageName{portuguese}{Definição}{none}}}}
+\newcommand{\ttheorem}{\IfLanguageName{english}{Theorem}{\IfLanguageName{french}{Théorème}{\IfLanguageName{portuguese}{Teorema}{none}}}}
+\newcommand{\tlemma}{\IfLanguageName{english}{Lemma}{\IfLanguageName{french}{Lemme}{\IfLanguageName{portuguese}{Lema}{none}}}}
+\newcommand{\tproof}{\IfLanguageName{english}{Proof}{\IfLanguageName{french}{Preuve}{\IfLanguageName{portuguese}{Prova}{none}}}}
+\newcommand{\tremark}{\IfLanguageName{english}{Remark}{\IfLanguageName{french}{Remarque}{\IfLanguageName{portuguese}{Remarca}{none}}}}
+\newcommand{\tphrase}{\IfLanguageName{english}{Phrase}{\IfLanguageName{french}{Phrase}{\IfLanguageName{portuguese}{Frase}{none}}}}
+\newcommand{\texample}{\IfLanguageName{english}{Example}{\IfLanguageName{french}{Exemple}{\IfLanguageName{portuguese}{Exemplo}{none}}}}
+\newcommand{\texercise}{\IfLanguageName{english}{Exercise}{\IfLanguageName{french}{Exercice}{\IfLanguageName{portuguese}{Exercício}{none}}}}
+\newcommand{\tresolution}{\IfLanguageName{english}{Resolution}{\IfLanguageName{french}{Résolution}{\IfLanguageName{portuguese}{Resolução}{none}}}}
+
 \theoremstyle{mystyle}{
-    \newtheorem{definition}{Definição}[section]
+    \newtheorem{definition}{\tdefinition}[section]
 }
 
 \theoremstyle{mystyle}{
-    \newtheorem{theorem}{Teorema}[section]
+    \newtheorem{theorem}{\ttheorem}[section]
 }
 
 \theoremstyle{mystyle}{
-    \newtheorem{lemma}[theorem]{Lemma}
+    \newtheorem{lemma}[theorem]{\tlemma}
 }
 
-\renewenvironment{proof}{{\bfseries Prova }}{\qed}  % Add QED symbol
+\renewenvironment{proof}{{\bfseries \tproof }}{\qed}  % Add QED symbol
 
 \theoremstyle{mystyle}{
-    \newtheorem*{remark}{Remark}
-}
-
-\theoremstyle{mystyle}{
-    \newtheorem*{phrase}{Phrase}
+    \newtheorem*{remark}{\tremark}
 }
 
 \theoremstyle{mystyle}{
-    \newtheorem{example}{Exemplo}[section]
+    \newtheorem*{phrase}{\tphrase}
 }
 
 \theoremstyle{mystyle}{
-    \newtheorem{exercise}{Exercício}[section]
+    \newtheorem{example}{\texample}[section]
 }
 
 \theoremstyle{mystyle}{
-    \newtheorem*{resolution}{Resolução}
+    \newtheorem{exercise}{\texercise}[section]
+}
+
+\theoremstyle{mystyle}{
+    \newtheorem*{resolution}{\tresolution}
 }
 
 
