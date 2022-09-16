@@ -31,7 +31,7 @@
 \usepackage{titling}                                                % General Presets
 \usepackage{enumitem, multicol, multirow}                           % Text Enviroments
 
-\usepackage[hidelinks]{hyperref}                                    %
+\usepackage{hyperref}                                               %
 \usepackage{bookmark, chngcntr, comment, csquotes, filecontents}    % File Manapulation
 
 \usepackage{amsmath, amssymb, amsthm, cancel, float, mathtools}     % Math Presets
@@ -89,6 +89,19 @@
 
 % \renewcommand{\labelenumi}{(\alph{enumi})}
 % \renewcommand{\labelenumii}{\roman{enumii}.}
+
+
+\hypersetup{%
+  colorlinks=true,      % colored links?
+  urlcolor=blue,        % default: cyan
+  linkcolor=darkgray,   % default: red
+  filecolor=blue,       % default: magenta
+  linkbordercolor=blue, % default: red
+  pdftitle={\@title},
+  pdfauthor={\@author},
+  pdfpagemode=FullScreen,
+}
+
 
 
 % ----------------------------------------------
