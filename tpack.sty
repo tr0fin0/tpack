@@ -206,32 +206,39 @@
 % }
 
 
+% works with the following languages:
+%   [x86masm]Assembler
+%   Bash
+%   C++
+%   C
+%   Python
+%   VHDL
 
-\newcommand{\myOctave}{                             % Name after the Language used
+\newcommand{\mycode}{                               % Name after the Language used
     \lstset{
-        language=Octave,                            % Code Language
         basicstyle=\ttfamily\small,                 % Code Font Size
         keywordstyle=\color{darkpurple}\bfseries,   % Color Key Word
         stringstyle=\color{darkblue},               % Color String
+        identifierstyle=\color{teal},
         commentstyle=\color{darkgreen},             % Color Comment
         morecomment=[s][\color{blue}]{/**}{*/},     % Color Comment
-        extendedchars=true,                         % 
+        tabsize=2,                                  % Tab Size
+        captionpos=b,                               % Caption Position
         showtabs=false,                             % Show Tabs within Strings
         showspaces=false,                           % Show Spaces Code
         showstringspaces=false,                     % Show Spaces Strings
-        numbers=left,                               % Line Number Position
-        numberstyle=\tiny\color{gray},              % Line Number Style
         stepnumber=1,                               % Line Number Step
+        numbers=left,                               % Line Number Position
         numbersep=5pt,                              % Line Number Distance from Code
+        numberstyle=\tiny\color{gray},              % Line Number Style
         frame=single,                               % Frame
         rulecolor=\color{black},                    % Frame Color
+        xleftmargin=0pt,                            % Left Margin
         backgroundcolor=\color{white},              % Background Color
         breaklines=true,                            % Break Automatic Line
         breakatwhitespace=true,                     % Break Automatic Spaces 
         breakautoindent=false,                      % Break Automatic Indent
-        captionpos=b,                               % Caption Position
-        xleftmargin=0pt,                            % Left Margin
-        tabsize=2,                                  % Tab Size
+        extendedchars=true,                         % 
         inputencoding=latin1,                       % Encoding
         literate=                                   % Including Especial Charects
                 {é}{{\'{e}}}1
@@ -271,197 +278,8 @@
     }
 }
 
-\newcommand{\myStyleBash}{
-    \lstset{
-        language=Bash,                              % Code Language
-        basicstyle=\ttfamily\small,                 % Code Font Size
-        keywordstyle=\color{darkpurple}\bfseries,   % Color Key Word
-        stringstyle=\color{darkblue},               % Color String
-        commentstyle=\color{darkgreen},             % Color Comment
-        morecomment=[s][\color{blue}]{/**}{*/},     % Color Comment
-        extendedchars=true,                         % 
-        showtabs=false,                             % Show Tabs within Strings
-        showspaces=false,                           % Show Spaces Code
-        showstringspaces=false,                     % Show Spaces Strings
-        numbers=left,                               % Line Number Position
-        numberstyle=\tiny\color{gray},              % Line Number Style
-        stepnumber=1,                               % Line Number Step
-        numbersep=5pt,                              % Line Number Distance from Code
-        frame=single,                               % Frame
-        rulecolor=\color{black},                    % Frame Color
-        breaklines=true,                            % Background Color
-        backgroundcolor=\color{white},              % Break Automatic Line
-        breakatwhitespace=true,                     % Break Automatic Spaces 
-        breakautoindent=false,                      % Break Automatic Indent
-        captionpos=b,                               % Caption Position
-        xleftmargin=0pt,                            % Left Margin
-        tabsize=2,                                  % Tab Size
-        inputencoding=latin1,                       % Encoding
-        literate=                                   % Including Especial Charects
-                {é}{{\'{e}}}1
-                {è}{{\`{e}}}1
-                {ê}{{\^{e}}}1
-                {ë}{{\¨{e}}}1
-                {É}{{\'{E}}}1
-                {Ê}{{\^{E}}}1
-                {û}{{\^{u}}}1
-                {ù}{{\`{u}}}1
-                {ú}{{\'{u}}}1
-                {â}{{\^{a}}}1
-                {à}{{\`{a}}}1
-                {á}{{\'{a}}}1
-                {ã}{{\~{a}}}1
-                {ä}{{\"{a}}}1
-                {Á}{{\'{A}}}1
-                {Â}{{\^{A}}}1
-                {Ã}{{\~{A}}}1
-                {Ä}{{\"{A}}}1
-                {ç}{{\c{c}}}1
-                {Ç}{{\c{C}}}1
-                {õ}{{\~{o}}}1
-                {ó}{{\'{o}}}1
-                {ô}{{\^{o}}}1
-                {ö}{{\"{o}}}1
-                {Õ}{{\~{O}}}1
-                {Ó}{{\'{O}}}1
-                {Ô}{{\^{O}}}1
-                {Ö}{{\"{O}}}1
-                {î}{{\^{i}}}1
-                {Î}{{\^{I}}}1
-                {í}{{\'{i}}}1
-                {Í}{{\~{Í}}}1
-                {ü}{{\"{u}}}1
-                {Ü}{{\"{U}}}1
-    }
-}
 
-\newcommand{\myStyleVHDL}{
-    \lstset{
-        language=VHDL,                              % Code Language
-        basicstyle=\ttfamily\small,                 % Code Font Size
-        keywordstyle=\color{darkpurple}\bfseries,   % Color Key Word
-        stringstyle=\color{darkblue},               % Color String
-        commentstyle=\color{darkgreen},             % Color Comment
-        morecomment=[s][\color{blue}]{/**}{*/},     % Color Comment
-        extendedchars=true,                         % 
-        showtabs=false,                             % Show Tabs within Strings
-        showspaces=false,                           % Show Spaces Code
-        showstringspaces=false,                     % Show Spaces Strings
-        numbers=left,                               % Line Number Position
-        numberstyle=\tiny\color{gray},              % Line Number Style
-        stepnumber=1,                               % Line Number Step
-        numbersep=5pt,                              % Line Number Distance from Code
-        frame=single,                               % Frame
-        rulecolor=\color{black},                    % Frame Color
-        breaklines=true,                            % Background Color
-        backgroundcolor=\color{white},              % Break Automatic Line
-        breakatwhitespace=true,                     % Break Automatic Spaces 
-        breakautoindent=false,                      % Break Automatic Indent
-        captionpos=b,                               % Caption Position
-        xleftmargin=0pt,                            % Left Margin
-        tabsize=2,                                  % Tab Size
-        inputencoding=latin1,                       % Encoding
-        literate=                                   % Including Especial Charects
-                {é}{{\'{e}}}1
-                {è}{{\`{e}}}1
-                {ê}{{\^{e}}}1
-                {ë}{{\¨{e}}}1
-                {É}{{\'{E}}}1
-                {Ê}{{\^{E}}}1
-                {û}{{\^{u}}}1
-                {ù}{{\`{u}}}1
-                {ú}{{\'{u}}}1
-                {â}{{\^{a}}}1
-                {à}{{\`{a}}}1
-                {á}{{\'{a}}}1
-                {ã}{{\~{a}}}1
-                {ä}{{\"{a}}}1
-                {Á}{{\'{A}}}1
-                {Â}{{\^{A}}}1
-                {Ã}{{\~{A}}}1
-                {Ä}{{\"{A}}}1
-                {ç}{{\c{c}}}1
-                {Ç}{{\c{C}}}1
-                {õ}{{\~{o}}}1
-                {ó}{{\'{o}}}1
-                {ô}{{\^{o}}}1
-                {ö}{{\"{o}}}1
-                {Õ}{{\~{O}}}1
-                {Ó}{{\'{O}}}1
-                {Ô}{{\^{O}}}1
-                {Ö}{{\"{O}}}1
-                {î}{{\^{i}}}1
-                {Î}{{\^{I}}}1
-                {í}{{\'{i}}}1
-                {Í}{{\~{Í}}}1
-                {ü}{{\"{u}}}1
-                {Ü}{{\"{U}}}1
-    }
-}
 
-\newcommand{\myStyleAssembly}{
-    \lstset{
-        language=[x86masm]Assembler,                % Code Language
-        basicstyle=\ttfamily\small,                 % Code Font Size
-        keywordstyle=\color{darkpurple}\bfseries,   % Color Key Word
-        stringstyle=\color{darkblue},               % Color String
-        commentstyle=\color{darkgreen},             % Color Comment
-        morecomment=[s][\color{blue}]{/**}{*/},     % Color Comment
-        extendedchars=true,                         % 
-        showtabs=false,                             % Show Tabs within Strings
-        showspaces=false,                           % Show Spaces Code
-        showstringspaces=false,                     % Show Spaces Strings
-        numbers=left,                               % Line Number Position
-        numberstyle=\tiny\color{gray},              % Line Number Style
-        stepnumber=1,                               % Line Number Step
-        numbersep=5pt,                              % Line Number Distance from Code
-        frame=single,                               % Frame
-        rulecolor=\color{black},                    % Frame Color
-        breaklines=true,                            % Background Color
-        backgroundcolor=\color{white},              % Break Automatic Line
-        breakatwhitespace=true,                     % Break Automatic Spaces 
-        breakautoindent=false,                      % Break Automatic Indent
-        captionpos=b,                               % Caption Position
-        xleftmargin=0pt,                            % Left Margin
-        tabsize=2,                                  % Tab Size
-        inputencoding=latin1,                       % Encoding
-        literate=                                   % Including Especial Charects
-                {é}{{\'{e}}}1
-                {è}{{\`{e}}}1
-                {ê}{{\^{e}}}1
-                {ë}{{\¨{e}}}1
-                {É}{{\'{E}}}1
-                {Ê}{{\^{E}}}1
-                {û}{{\^{u}}}1
-                {ù}{{\`{u}}}1
-                {ú}{{\'{u}}}1
-                {â}{{\^{a}}}1
-                {à}{{\`{a}}}1
-                {á}{{\'{a}}}1
-                {ã}{{\~{a}}}1
-                {ä}{{\"{a}}}1
-                {Á}{{\'{A}}}1
-                {Â}{{\^{A}}}1
-                {Ã}{{\~{A}}}1
-                {Ä}{{\"{A}}}1
-                {ç}{{\c{c}}}1
-                {Ç}{{\c{C}}}1
-                {õ}{{\~{o}}}1
-                {ó}{{\'{o}}}1
-                {ô}{{\^{o}}}1
-                {ö}{{\"{o}}}1
-                {Õ}{{\~{O}}}1
-                {Ó}{{\'{O}}}1
-                {Ô}{{\^{O}}}1
-                {Ö}{{\"{O}}}1
-                {î}{{\^{i}}}1
-                {Î}{{\^{I}}}1
-                {í}{{\'{i}}}1
-                {Í}{{\~{Í}}}1
-                {ü}{{\"{u}}}1
-                {Ü}{{\"{U}}}1
-    }
-}
 
 \lstdefinelanguage[RISC-V]{Assembler}{ %https://gist.github.com/AntonLydike/e339c3c3a4dcab8bc3c620b3fa436cda
     alsoletter={.},       % allow dots in keywords
@@ -481,6 +299,18 @@
         .align, .ascii, .asciiz, .byte, .data, .double, .extern,
         .float, .globl, .half, .kdata, .ktext, .set, .space, .text, .word
     },
+  
+    colorlinks=true,      % colored links?
+    urlcolor=blue,        % default: cyan
+    linkcolor=darkgray,   % default: red
+    filecolor=blue,       % default: magenta
+    linkbordercolor=blue, % default: red
+    pdftitle={\@title},
+    pdfauthor={\@author},
+    pdfpagemode=FullScreen,
+  }
+  
+  
     morekeywords=[3]{     % registers
         zero, ra, sp, gp, tp, s0, fp,
         t0, t1, t2, t3, t4, t5, t6,
