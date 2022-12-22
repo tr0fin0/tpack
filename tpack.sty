@@ -47,6 +47,7 @@
 \usepackage{forest, karnaugh-map, pgfplots}
 \usepackage{accsupp, listings}
 
+\usetikzlibrary{positioning, fit, backgrounds}                      % Modules
 \usetikzlibrary{matrix}                                             % Matrix
 \usepgfplotslibrary{statistics}                                     % Necessary for Boxplot
 \usepackage{siunitx}                                                % Units Package
@@ -649,6 +650,20 @@
 }
 
 
+% ----------------------------------------------
+%               Module: Customization
+% ----------------------------------------------
+
+\tikzset{
+    module/.style={%
+        draw, rounded corners,
+        minimum width=#1,
+        minimum height=7mm,
+        font=\sffamily
+        },
+    module/.default=2cm,
+    >=LaTeX
+}
 
 
 % ----------------------------------------------
