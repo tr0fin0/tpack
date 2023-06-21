@@ -55,6 +55,9 @@
 
 \usepackage{siunitx}                                                % Units Package
 
+\usepackage{fancyhdr}                                               % numbering modification
+\usepackage{lastpage}                                               % Required for \pageref{LastPage}
+
 
 % ----------------------------------------------
 %               Packages: Customization
@@ -105,6 +108,24 @@
   pdfauthor={\@author},
   pdfpagemode=FullScreen,
 }
+
+
+\newcommand{\of}{\IfLanguageName{english}{of}{\IfLanguageName{french}{de}{\IfLanguageName{portuguese}{de}{none}}}}
+
+\pagestyle{fancy}
+\fancyhead{}
+\fancyhead[L]{\@title}
+\fancyhead[C]{}
+\fancyhead[R]{\thepage\ \of\ \pageref{LastPage}}
+\renewcommand{\headrulewidth}{0.075mm}
+
+\fancyfoot{}
+\fancyfoot[L]{\@project}
+\fancyfoot[C]{}
+\fancyfoot[R]{\@author}
+\renewcommand{\footrulewidth}{0.075mm}
+
+
 
 
 
