@@ -184,21 +184,60 @@
 
 \newcommand*{\project}[1]{\gdef\@project{#1}}
 \newcommand*{\institution}[1]{\gdef\@institution{#1}}
+\newcommand*{\university}[1]{\gdef\@university{#1}}
+\newcommand*{\logo}[1]{\gdef\@logo{#1}}
+\newcommand*{\supervisor}[1]{\gdef\@supervisor{#1}}
 \newcommand*{\major}[1]{\gdef\@major{#1}}
 \newcommand*{\minor}[1]{\gdef\@minor{#1}}
+\newcommand*{\local}[1]{\gdef\@local{#1}}
+\newcommand*{\presentation}[1]{\gdef\@presentation{#1}}
+
+
 
 \renewcommand{\maketitle}{
     \begin{titlepage}
-        \begin{center}
-            {\large \@institution}\\[0mm]
-            \rule{450pt}{0.5pt}\\[4mm]
-            {\Huge \@title}\\
-            \rule{450pt}{0.5pt}\\[2mm]
-            {\large \@project}\\[200mm]
-            \today\\
-            \rule{250pt}{0.5pt}\\
-            {\large \@author}\\
-        \end{center}
+        \begin{figure}[ht]
+            \centering\includegraphics[height=40mm]{\@logo}
+        \end{figure}
+
+        \centering
+        \vspace{0.5cm}
+        \MakeUppercase{\@institution}\\
+        \MakeUppercase{\@university}
+
+        \vspace{0.5cm}
+        \rule{\textwidth}{0.25pt}\\
+        {\huge\bfseries\@title\unskip\strut\par}
+        {\large\@project\unskip\strut\par}
+        \rule{\textwidth}{0.25pt}\\
+
+        \vspace{0.5cm}
+        by\\
+        {\Large\@author\unskip\strut\par}
+        \begin{flushleft}
+            supervised by\\
+            {\large\@supervisor\unskip\strut\par}
+        \end{flushleft}
+
+
+        \vspace*{\fill}
+        \color{red}
+        \noindent\fbox{%
+        \parbox{\textwidth}{%
+           \centering{\large\textbf{Confidentiality Notice}}\\
+           \centering{\normalsize Non-confidential and publishable report}
+           }
+        }
+        \color{black}
+
+
+        \vspace*{\fill}
+        \@presentation
+
+        \vspace{1cm}
+        {\MakeUppercase{\@major}\\\MakeUppercase{\@minor}\unskip\strut\par}
+        \rule{0.5\textwidth}{0.25pt}\\
+        {\@local\\\today\unskip\strut\par}
     \end{titlepage}
 }
 
