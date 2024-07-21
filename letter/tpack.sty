@@ -1,0 +1,134 @@
+%% tpack_letter.sty 
+%% --------------------------------------------- 
+%% A package creeated for letter files
+%% 
+%% by Guilherme Trofino.
+%% ---------------------------------------------
+
+
+
+
+% ----------------------------------------------
+%               Presets
+% ----------------------------------------------
+
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{tpack_letter}[2024/04/16 Trofino's Package]
+
+
+
+% ----------------------------------------------
+%               Packages: Required
+% ----------------------------------------------
+
+\usepackage{geometry}
+\usepackage{enumitem, multicol, subfiles, titlesec}
+\usepackage[english, french, portuguese]{babel}
+\usepackage{iflang} 
+\usepackage{graphicx}
+\usepackage[export]{adjustbox}
+\usepackage{hyperref}
+
+\usepackage[dvipsnames]{xcolor}
+
+\usepackage{mdwlist}
+\usepackage{relsize}
+
+\usepackage{microtype, tgpagella}
+\usepackage[T1]{fontenc}
+
+
+
+% ----------------------------------------------
+%               Packages: Customization
+% ----------------------------------------------
+
+\geometry{
+    margin=10mm
+}
+
+\hypersetup{
+    colorlinks=false,
+    urlbordercolor=CadetBlue
+}
+
+\setlength{\multicolsep}{3.0pt plus 1.0pt minus 0.75pt}
+
+\pagenumbering{gobble}
+
+\newcommand{\cvcolor}{Blue}
+
+
+% ----------------------------------------------
+%               Commands: Customization
+% ----------------------------------------------
+
+
+% LaTeX modifications
+\renewcommand{\maketitle}{
+    \section*{\@author}
+    
+    \vspace{5mm}
+    
+    \contactinfo
+    
+    \vspace{20mm}
+
+    \noindent Paris, \today
+    
+    \vspace{10mm}
+}
+
+\titleformat
+    {\section}              % Part
+    [block]                 % Part Shape
+    {\normalfont\bf\Large}  % Font Size
+    {\thesection. }         % Label Numbering
+    {0mm}                   % Part Separation
+    {}                      % Code Before
+    [{\color{\cvcolor}\titlerule[0.5mm]}]   % Code After
+
+    \titlespacing*{\section}{0.0mm}{7.5mm}{2.5mm}
+
+\titleformat
+    {\subsection}              % Part
+    [block]                 % Part Shape
+    {\normalfont\large}     % Font Size
+    {\thesection.\thesubsection } % Label Numbering
+    {0mm}                   % Part Separation
+    {}                      % Code Before
+    []                      % Code After
+
+    \titlespacing*{\subsection}{0.0mm}{5.0mm}{0.0mm}
+
+
+% \newcommand*{}{
+%     \IfLanguageName{english}{}{
+%         \IfLanguageName{french}{}{
+%             not defined
+%         }
+%     }
+% }
+
+
+% cv sections
+\newcommand{\imagescale}{0.6125}
+\newcommand{\contactinfo}{
+    \noindent
+    \includegraphics[width=\imagescale\baselineskip, height=\imagescale\baselineskip]{package/icons/location-240.png} 270 Rue Saint-Jacques. 75005 Paris - France\\
+    \includegraphics[width=\imagescale\baselineskip, height=\imagescale\baselineskip]{package/icons/phone-240.png} +33 07 49 18 55 00\\
+    \includegraphics[width=\imagescale\baselineskip, height=\imagescale\baselineskip]{package/icons/email-240.png} \href{mailto:guitrofino@gmail.com}{guitrofino@gmail.com}\\
+}
+
+\newcommand{\signoff}{
+    \vspace{10mm}
+    
+    \hfill Guilherme NUNES TROFINO
+    \begin{figure}[h]
+        \includegraphics[height=10mm, right]{package/images/signature.png}
+    \end{figure}
+
+    \vfill
+    {\color{\cvcolor}\titlerule[0.5mm]}
+}
