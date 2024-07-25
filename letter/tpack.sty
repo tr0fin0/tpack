@@ -1,7 +1,7 @@
-%% tpack_letter.sty 
-%% --------------------------------------------- 
+%% tpack.sty
+%% ---------------------------------------------
 %% A package creeated for letter files
-%% 
+%%
 %% by Guilherme Trofino.
 %% ---------------------------------------------
 
@@ -14,7 +14,7 @@
 
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{tpack_letter}[2024/04/16 Trofino's Package]
+\ProvidesPackage{tpack}[2024/04/16 Trofino's Letter Package]
 
 
 
@@ -25,7 +25,7 @@
 \usepackage{geometry}
 \usepackage{enumitem, multicol, subfiles, titlesec}
 \usepackage[english, french, portuguese]{babel}
-\usepackage{iflang} 
+\usepackage{iflang}
 \usepackage{graphicx}
 \usepackage[export]{adjustbox}
 \usepackage{hyperref}
@@ -68,15 +68,15 @@
 % LaTeX modifications
 \renewcommand{\maketitle}{
     \section*{\@author}
-    
+
     \vspace{5mm}
-    
+
     \contactinfo
-    
+
     \vspace{20mm}
 
     \noindent Paris, \today
-    
+
     \vspace{10mm}
 }
 
@@ -123,7 +123,7 @@
 
 \newcommand{\signoff}{
     \vspace{10mm}
-    
+
     \hfill Guilherme NUNES TROFINO
     \begin{figure}[h]
         \includegraphics[height=10mm, right]{package/images/signature.png}

@@ -1,7 +1,7 @@
-%% tpack.sty 
-%% --------------------------------------------- 
+%% tpack.sty
+%% ---------------------------------------------
 %% A package creeated for the classes repository
-%% 
+%%
 %% by Guilherme Trofino.
 %% ---------------------------------------------
 
@@ -84,7 +84,7 @@
 \graphicspath{ {./images/} }    % Graphics Path
 
                                                 % Colors Setup
-\definecolor{darkgreen}{rgb}{0.0, 0.42, 0.24}   % 
+\definecolor{darkgreen}{rgb}{0.0, 0.42, 0.24}   %
 \definecolor{darkpurple}{rgb}{0.74, 0.2, 0.64}  %
 \definecolor{darkblue}{rgb}{0.0, 0.28, 0.67}    %
 \definecolor{mauve}{rgb}{0.58,0,0.82}           %
@@ -261,9 +261,9 @@
         xleftmargin=10pt,                            % Left Margin
         backgroundcolor=\color{white},              % Background Color
         breaklines=true,                            % Break Automatic Line
-        breakatwhitespace=true,                     % Break Automatic Spaces 
+        breakatwhitespace=true,                     % Break Automatic Spaces
         breakautoindent=false,                      % Break Automatic Indent
-        extendedchars=true,                         % 
+        extendedchars=true,                         %
         inputencoding=latin1,                       % Encoding
         literate=                                   % Including Especial Charects
                 {é}{{\'{e}}}1
@@ -451,10 +451,10 @@
 }
 
 \ctikzset{
-    component text=left, 
-    diodes/scale=0.5, 
-    capacitors/scale=0.75, 
-    resistors/width=0.25, 
+    component text=left,
+    diodes/scale=0.5,
+    capacitors/scale=0.75,
+    resistors/width=0.25,
     resistors/zigs=1
 }
 
@@ -736,10 +736,10 @@
         \fi
         \lasttotal=\total
         \divide\total by\targetbase
-    \repeatpgfmathloop    
-    \draw [->] (\pgfmathcounter-1,-\pgfmathcounter-1) -- ++(-0.5,0); 
+    \repeatpgfmathloop
+    \draw [->] (\pgfmathcounter-1,-\pgfmathcounter-1) -- ++(-0.5,0);
     \node [anchor=west] at (1, -\pgfmathcounter-2) {$\boxed{#1_{(10)}=\newnumber_{(\the\targetbase)}}$};
-    \end{tikzpicture}   
+    \end{tikzpicture}
 }
 
 
@@ -755,11 +755,11 @@
 % globally sets the counter \@mm to the decimal number represented by #1
 % which is either a digit 0-9 or a letter A-Z or a-z
 % no check on input done!
-%\def\@set@mmto #1{\@mm`#1 \advance\@mm-48 
+%\def\@set@mmto #1{\@mm`#1 \advance\@mm-48
 %      \ifnum\@mm>48 \advance\@mm-39 \else
 %      \ifnum\@mm>16 \advance\@mm-7 \fi\fi \global\@mm\@mm}
 % I had initially:
-\def\@set@mmto #1{\@mm`#1 
+\def\@set@mmto #1{\@mm`#1
   \ifnum\@mm>96 \advance\@mm-87 \else
   \ifnum\@mm>64 \advance\@mm-55 \else
   \advance\@mm-48 \fi\fi \global\@mm\@mm}
@@ -767,7 +767,7 @@
 % prepares the first three entries of a row of the future tabular
 % \@nn represents the decimal number so far computed, and will
 % turn into base times itself plus new digit
-% global assignments to transcend cells               
+% global assignments to transcend cells
 \def\@mostofonerow#1{\xdef\@digitssofar{\@digitssofar#1}%
     \@set@mmto #1%
     $\mathtt{\@digitssofar_{\the@base}}\rightarrow\the\@mm\;$%
@@ -802,8 +802,8 @@
 \def\@digitssofar{}%
 \oalign{$\mathtt{#2_{#1}}:$\hfil\cr
 %%%% replaced
-%%%% \expandafter\@displayrows\expandafter{\@makerows #2.}}} 
-%%%% with the simpler: 
+%%%% \expandafter\@displayrows\expandafter{\@makerows #2.}}}
+%%%% with the simpler:
         {%
          \setlength{\tabcolsep}{0pt}%
          \begin{tabular}[t]{r|lcl}
@@ -931,7 +931,7 @@
 }
 
 \pgfdeclareshape{tolflatness}{
-  \inheritsavedanchors[from=rectangle] 
+  \inheritsavedanchors[from=rectangle]
   \inheritanchorborder[from=rectangle]
   \foreach \anchor in {center,north,south,west,east,north east,south east,north west, south west}{
     \inheritanchor[from=rectangle]{\anchor}
@@ -955,7 +955,7 @@
 
 
 \pgfdeclareshape{tolcircularity}{
-  \inheritsavedanchors[from=rectangle] 
+  \inheritsavedanchors[from=rectangle]
   \inheritanchorborder[from=rectangle]
   \foreach \anchor in {center,north,south,west,east,north east,south east,north west, south west}{
     \inheritanchor[from=rectangle]{\anchor}
@@ -974,7 +974,7 @@
 }
 
 \pgfdeclareshape{tolcylindricity}{
-  \inheritsavedanchors[from=rectangle] 
+  \inheritsavedanchors[from=rectangle]
   \inheritanchorborder[from=rectangle]
   \foreach \anchor in {center,north,south,west,east,north east,south east,north west, south west}{
     \inheritanchor[from=rectangle]{\anchor}
@@ -1001,7 +1001,7 @@
 }
 
 \pgfdeclareshape{tolprofile line}{
-  \inheritsavedanchors[from=rectangle] 
+  \inheritsavedanchors[from=rectangle]
   \inheritanchorborder[from=rectangle]
   \foreach \anchor in {center,north,south,west,east,north east,south east,north west, south west}{
     \inheritanchor[from=rectangle]{\anchor}
@@ -1021,7 +1021,7 @@
 }
 
 \pgfdeclareshape{tolprofile surface}{
-  \inheritsavedanchors[from=rectangle] 
+  \inheritsavedanchors[from=rectangle]
   \inheritanchorborder[from=rectangle]
   \foreach \anchor in {center,north,south,west,east,north east,south east,north west, south west}{
     \inheritanchor[from=rectangle]{\anchor}
@@ -1043,7 +1043,7 @@
 
 
 \pgfdeclareshape{tolperpendicularity}{
-  \inheritsavedanchors[from=rectangle] 
+  \inheritsavedanchors[from=rectangle]
   \inheritanchorborder[from=rectangle]
   \foreach \anchor in {center,north,south,west,east,north east,south east,north west, south west}{
     \inheritanchor[from=rectangle]{\anchor}
@@ -1064,7 +1064,7 @@
 }
 
 \pgfdeclareshape{tolangularity}{
-  \inheritsavedanchors[from=rectangle] 
+  \inheritsavedanchors[from=rectangle]
   \inheritanchorborder[from=rectangle]
   \foreach \anchor in {center,north,south,west,east,north east,south east,north west, south west}{
     \inheritanchor[from=rectangle]{\anchor}
@@ -1086,7 +1086,7 @@
 
 
 \pgfdeclareshape{tolparallelism}{
-  \inheritsavedanchors[from=rectangle] 
+  \inheritsavedanchors[from=rectangle]
   \inheritanchorborder[from=rectangle]
   \foreach \anchor in {center,north,south,west,east,north east,south east,north west, south west}{
     \inheritanchor[from=rectangle]{\anchor}
@@ -1109,7 +1109,7 @@
 
 
 \pgfdeclareshape{tolsymmetry}{
-  \inheritsavedanchors[from=rectangle] 
+  \inheritsavedanchors[from=rectangle]
   \inheritanchorborder[from=rectangle]
   \foreach \anchor in {center,north,south,west,east,north east,south east,north west, south west}{
     \inheritanchor[from=rectangle]{\anchor}
@@ -1132,7 +1132,7 @@
 }
 
 \pgfdeclareshape{tolconcentricity}{
-  \inheritsavedanchors[from=rectangle] 
+  \inheritsavedanchors[from=rectangle]
   \inheritanchorborder[from=rectangle]
   \foreach \anchor in {center,north,south,west,east,north east,south east,north west, south west}{
     \inheritanchor[from=rectangle]{\anchor}
@@ -1152,7 +1152,7 @@
 }
 
 \pgfdeclareshape{tolcircular runout}{
-  \inheritsavedanchors[from=rectangle] 
+  \inheritsavedanchors[from=rectangle]
   \inheritanchorborder[from=rectangle]
   \foreach \anchor in {center,north,south,west,east,north east,south east,north west, south west}{
     \inheritanchor[from=rectangle]{\anchor}
@@ -1186,7 +1186,7 @@
 }
 
 \pgfdeclareshape{toltotal runout}{
-  \inheritsavedanchors[from=rectangle] 
+  \inheritsavedanchors[from=rectangle]
   \inheritanchorborder[from=rectangle]
   \foreach \anchor in {center,north,south,west,east,north east,south east,north west, south west}{
     \inheritanchor[from=rectangle]{\anchor}
@@ -1239,7 +1239,7 @@
 }
 
 \pgfdeclareshape{tolmodifier}{
-  \inheritsavedanchors[from=rectangle] 
+  \inheritsavedanchors[from=rectangle]
   \inheritanchorborder[from=rectangle]
   \foreach \anchor in {center,north,south,west,east,north east,south east,north west, south west}{
     \inheritanchor[from=rectangle]{\anchor}

@@ -1,7 +1,7 @@
-%% tpack_cv.sty 
-%% --------------------------------------------- 
+%% tpack.sty
+%% ---------------------------------------------
 %% A package creeated for cv files
-%% 
+%%
 %% by Guilherme Trofino.
 %% ---------------------------------------------
 
@@ -14,7 +14,7 @@
 
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{tpack_cv}[2024/04/10 Trofino's Package]
+\ProvidesPackage{tpack}[2024/04/10 Trofino's CV Package]
 
 
 
@@ -25,7 +25,7 @@
 \usepackage{geometry}
 \usepackage{enumitem, multicol, subfiles, titlesec}
 \usepackage[english, french, portuguese]{babel}
-\usepackage{iflang} 
+\usepackage{iflang}
 \usepackage{graphicx}
 \usepackage{hyperref}
 
@@ -126,10 +126,10 @@
 % cv sections
 \newcommand{\imagescale}{0.6125}
 \newcommand{\contactinfo}{
-    \noindent\includegraphics[width=\imagescale\baselineskip, height=\imagescale\baselineskip]{package/icons/email-240.png} \href{mailto:guitrofino@gmail.com}{guitrofino@gmail.com}
-    \quad\includegraphics[width=\imagescale\baselineskip, height=\imagescale\baselineskip]{package/icons/linkedin-240.png} \href{https://www.linkedin.com/in/guilherme-trofino/}{LinkedIn: guilherme-trofino}
-    \quad\includegraphics[width=\imagescale\baselineskip, height=\imagescale\baselineskip]{package/icons/github-240.png} \href{https://github.com/tr0fin0}{GitHub: tr0fin0}
-    \quad\includegraphics[width=\imagescale\baselineskip, height=\imagescale\baselineskip]{package/icons/phone-240.png} +33 07 49 18 55 00
+    \noindent\includegraphics[width=\imagescale\baselineskip, height=\imagescale\baselineskip]{tpack/cv/icons/email-240.png} \href{mailto:guitrofino@gmail.com}{guitrofino@gmail.com}
+    \quad\includegraphics[width=\imagescale\baselineskip, height=\imagescale\baselineskip]{tpack/cv/icons/linkedin-240.png} \href{https://www.linkedin.com/in/guilherme-trofino/}{LinkedIn: guilherme-trofino}
+    \quad\includegraphics[width=\imagescale\baselineskip, height=\imagescale\baselineskip]{tpack/cv/icons/github-240.png} \href{https://github.com/tr0fin0}{GitHub: tr0fin0}
+    \quad\includegraphics[width=\imagescale\baselineskip, height=\imagescale\baselineskip]{tpack/cv/icons/phone-240.png} +33 07 49 18 55 00
 }
 
 \newcommand{\summary}[2]{
@@ -146,7 +146,7 @@
 % cv building block
 \newcommand{\topicblock}[5]{
     \subsection*{#1}
-    \textcolor{\cvcolor}{\textbf{#2}}\hfill\includegraphics[width=\imagescale\baselineskip, height=\imagescale\baselineskip]{package/icons/location-240.png} #3\qquad\includegraphics[width=\imagescale\baselineskip, height=\imagescale\baselineskip]{package/icons/calendar-240.png} #4
+    \textcolor{\cvcolor}{\textbf{#2}}\hfill\includegraphics[width=\imagescale\baselineskip, height=\imagescale\baselineskip]{tpack/cv/icons/location-240.png} #3\qquad\includegraphics[width=\imagescale\baselineskip, height=\imagescale\baselineskip]{tpack/cv/icons/calendar-240.png} #4
 
     \begin{indented}
         \item[]#5
