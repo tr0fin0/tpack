@@ -103,6 +103,7 @@ Open VSCode settings with `ctrl + ,` and:
 
 Recommeded enviroment setting:
 
+- set VSCode `Editor: Render Whitespace` to `all`;
 - set VSCode `Files: Auto Save` to `afterDelay`;
 - set VSCode `Files: Auto Save Delay` to `100`;
 - search `Editor: Rulers`, open settings.json file and add:
