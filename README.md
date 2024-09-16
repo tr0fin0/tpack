@@ -113,6 +113,40 @@ Recommeded enviroment setting:
 
 ## Usage
 
+### Subfiles
+
+Using subfiles in LaTeX allows you to break a large document into smaller, manageable sections. Each section can be edited and compiled independently, improving collaboration and workflow, especially in complex projects like theses or books. It also helps in organizing content efficiently without cluttering the main document.
+
+Project structure example:
+
+```bash
+.
+├── document
+│   ├── main.tex
+│   └── sections
+│       ├── section_1.tex
+```
+
+`main.tex` file:
+
+```LaTeX
+% main.tex
+\documentclass{article}
+\usepackage{../../../../tpack/document/tpack}
+
+...
+```
+`section_1.tex` file:
+
+```LaTeX
+% section_1.tex
+\documentclass[../main.tex]{subfiles}
+
+...
+```
+
+With this structure is possible to build the `main.tex` from the `section_1.tex` file.
+
 ### Package Import
 
 Add desired package with:
