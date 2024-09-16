@@ -96,8 +96,10 @@ Install VSCode [LaTex Workshop](https://marketplace.visualstudio.com/items?itemN
 
 Open VSCode settings with `ctrl + ,` and:
 
-- set `LaTex Auto Build: Run` to `never`;
-- set `LaTex Auto Clean: Run` to `onBuilt`;
+- set `LaTeX Auto Build: Run` to `never`;
+- set `LaTeX Auto Clean: Run` to `onBuilt`;
+- set `LaTeX Clean Subfolder: Enabled` to `true`;
+- set `LaTeX LaTeX Root File: Use Sub File` to `true`;
 
 Recommeded enviroment setting:
 
