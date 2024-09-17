@@ -7,7 +7,66 @@ Custom LaTeX packages for applications below:
 - [letter](letter/tpack.sty)
 - [report](report/tpack.sty)
 
-## installation
+## Installation
+
+### pre-commit
+
+> If you are using Windows, disconsider this section.
+
+Pre-commits in a repository help enforce code quality and consistency by automatically running checks (like linters, formatters, or tests) before changes are committed.
+
+This ensures that only code meeting certain standards is added to the project, reducing errors and improving maintainability.
+
+In Linux open the repository main folder and run:
+```bash
+pre-commit -V
+
+# pre-commit 2.17.8
+```
+If a version is shown, `pre-commit` is already installed. If it is not the case, installed, run:
+```bash
+sudo apt install pre-commit
+```
+Then in the repository main folder run:
+```bash
+pre-commit install
+pre-commit --install-hooks
+```
+Wait until it is finished. Then run:
+```bash
+pre-commit run --all-files
+```
+All necessary auxiliary files will be created:
+
+- .clang-format
+- .cmake-format.yaml
+- .isort.cfg
+- .pylintrc
+
+Then run:
+
+```bash
+sudo apt install clang-format
+```
+
+Finally, `pre-commit` is installed.
+
+#### `pylint`
+
+If a `pylint` warning should be ignored add:
+
+```python
+# pylint: disable=<flag-name>
+...
+```
+
+If all `pylint` warnings should be ignored add:
+
+```python
+...
+# pylint: skip-file
+```
+
 
 ### Tex Live
 
@@ -37,11 +96,14 @@ Install VSCode [LaTex Workshop](https://marketplace.visualstudio.com/items?itemN
 
 Open VSCode settings with `ctrl + ,` and:
 
-- set `LaTex Auto Build: Run` to `never`;
-- set `LaTex Auto Clean: Run` to `onBuilt`;
+- set `LaTeX Auto Build: Run` to `never`;
+- set `LaTeX Auto Clean: Run` to `onBuilt`;
+- set `LaTeX Clean Subfolder: Enabled` to `true`;
+- set `LaTeX LaTeX Root File: Use Sub File` to `true`;
 
 Recommeded enviroment setting:
 
+- set VSCode `Editor: Render Whitespace` to `all`;
 - set VSCode `Files: Auto Save` to `afterDelay`;
 - set VSCode `Files: Auto Save Delay` to `100`;
 - search `Editor: Rulers`, open settings.json file and add:
@@ -53,6 +115,40 @@ Recommeded enviroment setting:
 ```
 
 ## Usage
+
+### Subfiles
+
+Using subfiles in LaTeX allows you to break a large document into smaller, manageable sections. Each section can be edited and compiled independently, improving collaboration and workflow, especially in complex projects like theses or books. It also helps in organizing content efficiently without cluttering the main document.
+
+Project structure example:
+
+```bash
+.
+├── document
+│   ├── main.tex
+│   └── sections
+│       ├── section_1.tex
+```
+
+`main.tex` file:
+
+```LaTeX
+% main.tex
+\documentclass{article}
+\usepackage{../../../../tpack/document/tpack}
+
+...
+```
+`section_1.tex` file:
+
+```LaTeX
+% section_1.tex
+\documentclass[../main.tex]{subfiles}
+
+...
+```
+
+With this structure is possible to build the `main.tex` from the `section_1.tex` file.
 
 ### Package Import
 
