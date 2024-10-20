@@ -23,11 +23,14 @@
 % ----------------------------------------------
 
 \usepackage{geometry}
-\usepackage{enumitem, multicol, subfiles, titlesec}
+\usepackage{enumitem, multicol, paracol, subfiles, titlesec}
 \usepackage[english, french, portuguese]{babel}
 \usepackage{iflang}
+\usepackage{setspace}
 \usepackage{graphicx}
 \usepackage{hyperref}
+\usepackage{contour}
+\usepackage[normalem]{ulem}
 
 \usepackage[dvipsnames]{xcolor}
 
@@ -35,6 +38,9 @@
 \usepackage{relsize}
 
 \usepackage{microtype, tgpagella}
+
+% https://tug.org/FontCatalogue/sansseriffonts.html
+\usepackage[sfdefault]{inter}
 \usepackage[T1]{fontenc}
 
 
@@ -43,47 +49,28 @@
 %               Packages: Customization
 % ----------------------------------------------
 
+% page configuration
 \geometry{
     margin=10mm
 }
 
-\hypersetup{
-    colorlinks=false,
-    urlbordercolor=CadetBlue
-}
-
-\setlength{\multicolsep}{3.0pt plus 1.0pt minus 0.75pt}
+\setlength{\columnsep}{10mm}
+\newcommand{\columnsize}{0.75}
 
 \pagenumbering{gobble}
 
-\newcommand{\cvcolor}{Blue}
 
-
-% ----------------------------------------------
-%               Commands: Customization
-% ----------------------------------------------
-
-
-% LaTeX modifications
-\renewcommand{\maketitle}{
-    \noindent{\LARGE\textbf{\@author}}
-    \hfill
-    \small{\today\version}
-    \vspace{0.5mm}
-
-    \contactinfo
-}
-
+% titles configuration
 \titleformat
     {\section}              % Part
     [block]                 % Part Shape
-    {\normalfont\bf\Large}  % Font Size
+    {\color{main_color}\normalfont\bf\huge}  % Font Size
     {\thesection. }         % Label Numbering
     {0mm}                   % Part Separation
     {}                      % Code Before
-    [{\color{\cvcolor}\titlerule[0.5mm]}]   % Code After
+    [{\color{main_color}\titlerule[0.75mm]}]   % Code After
 
-    \titlespacing*{\section}{0.0mm}{7.5mm}{2.5mm}
+    \titlespacing*{\section}{0.0mm}{5.0mm}{2.5mm}
 
 \titleformat
     {\subsection}              % Part
@@ -97,13 +84,55 @@
     \titlespacing*{\subsection}{0.0mm}{5.0mm}{0.0mm}
 
 
+% color customization
+% https://htmlcolorcodes.com/fr/
+\definecolor{link_color}{rgb}{1.0, 0.75, 0.0}
+\definecolor{main_color}{HTML}{873600}
+\definecolor{text_color}{HTML}{505050}
+\definecolor{title_color}{HTML}{303030}
+
+\hypersetup{
+    colorlinks=false,
+    urlbordercolor=link_color
+}
+
+\renewcommand{\ULdepth}{1.8pt}
+\contourlength{0.8pt}
+\newcommand{\myuline}[1]{%
+  \uline{\phantom{#1}}%
+  \llap{\contour{white}{#1}}%
+}
+
+% ----------------------------------------------
+%               Commands: Customization
+% ----------------------------------------------
+
+% LaTeX modifications
+\renewcommand{\maketitle}{
+    \noindent{\Huge\textbf{\color{title_color}\@author}}
+    % \hfill
+    % \text{\small\today\version}
+
+    \vspace{0.5mm}
+
+    \contactinfo
+}
+\newcommand{\presentation}[1]{
+    \noindent\textcolor{text_color}{#1}
+}
+
+
 %   localization variables
 \newcommand{\version}{
-    \IfLanguageName{english}{[EN version]}{
-        \IfLanguageName{french}{[FR version]}{
+    \IfLanguageName{english}{[EN]}{
+        \IfLanguageName{french}{[FR]}{
             not defined
         }
     }
+}
+
+\newcommand{\division}{
+    \vspace{0mm}\noindent\rule{\linewidth}{0.1mm}\vspace{0mm}
 }
 
 \newcommand*{\cvbody}{
@@ -126,36 +155,42 @@
 % cv sections
 \newcommand{\imagescale}{0.6125}
 \newcommand{\contactinfo}{
-    \noindent\includegraphics[width=\imagescale\baselineskip, height=\imagescale\baselineskip]{tpack/cv/icons/email-240.png} \href{mailto:guitrofino@gmail.com}{guitrofino@gmail.com}
-    \quad\includegraphics[width=\imagescale\baselineskip, height=\imagescale\baselineskip]{tpack/cv/icons/linkedin-240.png} \href{https://www.linkedin.com/in/guilherme-trofino/}{LinkedIn: guilherme-trofino}
-    \quad\includegraphics[width=\imagescale\baselineskip, height=\imagescale\baselineskip]{tpack/cv/icons/github-240.png} \href{https://github.com/tr0fin0}{GitHub: tr0fin0}
+    \noindent\includegraphics[width=\imagescale\baselineskip, height=\imagescale\baselineskip]{tpack/cv/icons/linkedin-240.png} \href{https://www.linkedin.com/in/guilherme-trofino/}{\myuline{guilherme-trofino}}
+    \quad\includegraphics[width=\imagescale\baselineskip, height=\imagescale\baselineskip]{tpack/cv/icons/github-240.png} \href{https://github.com/tr0fin0}{\myuline{tr0fin0}}\\
+    \noindent\includegraphics[width=\imagescale\baselineskip, height=\imagescale\baselineskip]{tpack/cv/icons/email-240.png} \href{mailto:guilherme.trofino@ensta-paris.fr}{\myuline{guilherme.trofino@ensta-paris.fr}}
     \quad\includegraphics[width=\imagescale\baselineskip, height=\imagescale\baselineskip]{tpack/cv/icons/phone-240.png} +33 07 49 18 55 00
-}
-
-\newcommand{\summary}[2]{
-    \begin{multicols}{2}
-    \noindent \textit{#1}
-
-    \columnbreak
-
-    \noindent #2
-    \end{multicols}
+    \quad\includegraphics[width=\imagescale\baselineskip, height=\imagescale\baselineskip]{tpack/cv/icons/location-240.png} Paris, France
 }
 
 
 % cv building block
-\newcommand{\topicblock}[5]{
+\newcommand{\topicblock}[6]{
     \subsection*{#1}
-    \textcolor{\cvcolor}{\textbf{#2}}\hfill\includegraphics[width=\imagescale\baselineskip, height=\imagescale\baselineskip]{tpack/cv/icons/location-240.png} #3\qquad\includegraphics[width=\imagescale\baselineskip, height=\imagescale\baselineskip]{tpack/cv/icons/calendar-240.png} #4
+    \textcolor{main_color}{\large\textbf{#2}}
 
-    \begin{indented}
-        \item[]#5
-    \end{indented}
+    \noindent\includegraphics[width=\imagescale\baselineskip, height=\imagescale\baselineskip]{tpack/cv/icons/calendar-240.png} \textcolor{text_color}{#4}
+    \hfill\includegraphics[width=\imagescale\baselineskip, height=\imagescale\baselineskip]{tpack/cv/icons/location-240.png} \textcolor{text_color}{#3}
+
+    \if#5\empty
+        % do nothing
+    \else
+        \vspace{2mm}
+        \begin{indented}
+            \item[]\color{text_color}#5
+        \end{indented}
+    \fi
+
+    \if#6\empty
+        % do nothing
+    \else
+        \vspace{2mm}
+        \noindent\textbf{Highlight:} \textcolor{text_color}{#6}
+    \fi
 }
 
 \newenvironment{indented}{
     \begin{list}{}{
-        \setlength{\leftmargin}{5mm}
+        \setlength{\leftmargin}{3mm}
         \setlength{\parsep}{0mm}
         \setlength{\parskip}{0mm}
         \setlength{\itemsep}{0mm}
@@ -163,5 +198,5 @@
     }}{\end{list}}
 
 \newcommand{\topicline}[2]{
-    \textbf{#1}: #2\\
+    \noindent\textbf{#1 :} \textcolor{text_color}{#2}\\
 }
