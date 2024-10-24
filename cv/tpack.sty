@@ -31,6 +31,7 @@
 \usepackage{hyperref}
 \usepackage{contour}
 \usepackage[normalem]{ulem}
+\usepackage{tikz}
 
 \usepackage[dvipsnames]{xcolor}
 
@@ -102,6 +103,15 @@
   \uline{\phantom{#1}}%
   \llap{\contour{white}{#1}}%
 }
+
+\newcommand{\colorbar}[2]{
+    \begin{tikzpicture}[baseline]
+        \fill[color=main_color] (0,0) rectangle (#2mm, #1mm);
+        \draw[thick, color=text_color] (0,0) rectangle (\linewidth, #1mm);
+    \end{tikzpicture}
+    \vspace{-1mm}\\
+}
+
 
 % ----------------------------------------------
 %               Commands: Customization
