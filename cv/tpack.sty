@@ -31,8 +31,9 @@
 \usepackage{hyperref}
 \usepackage{contour}
 \usepackage[normalem]{ulem}
+\usepackage{tikz}
 
-\usepackage[dvipsnames]{xcolor}
+% \usepackage[dvipsnames]{xcolor}
 
 \usepackage{mdwlist}
 \usepackage{relsize}
@@ -103,6 +104,15 @@
   \llap{\contour{white}{#1}}%
 }
 
+\newcommand{\colorbar}[2]{
+    \begin{tikzpicture}[baseline]
+        \fill[color=main_color] (0,0) rectangle (#2mm, #1mm);
+        \draw[thick, color=text_color] (0,0) rectangle (\linewidth, #1mm);
+    \end{tikzpicture}
+    \vspace{-1mm}\\
+}
+
+
 % ----------------------------------------------
 %               Commands: Customization
 % ----------------------------------------------
@@ -124,9 +134,11 @@
 
 %   localization variables
 \newcommand{\version}{
-    \IfLanguageName{english}{[EN]}{
-        \IfLanguageName{french}{[FR]}{
-            not defined
+    \IfLanguageName{english}{[EN VERSION]}{
+        \IfLanguageName{french}{[FR VERSION]}{
+            \IfLanguageName{french}{[FR VERSION]}{
+                not defined
+            }
         }
     }
 }
@@ -138,9 +150,17 @@
 \newcommand*{\cvbody}{
     \IfLanguageName{english}{\subfile{translation/cv_en.tex}}{
         \IfLanguageName{french}{\subfile{translation/cv_fr.tex}}{
-            not defined
+            \IfLanguageName{portuguese}{\subfile{translation/cv_br.tex}}{
+                not defined
+            }
         }
     }
+}
+
+\newcommand*{\cvall}{
+    \subfile{translation/cv_en.tex}
+    \newpage\subfile{translation/cv_fr.tex}
+    \newpage\subfile{translation/cv_br.tex}
 }
 
 % \newcommand*{}{
@@ -157,9 +177,10 @@
 \newcommand{\contactinfo}{
     \noindent\includegraphics[width=\imagescale\baselineskip, height=\imagescale\baselineskip]{tpack/cv/icons/linkedin-240.png} \href{https://www.linkedin.com/in/guilherme-trofino/}{\myuline{guilherme-trofino}}
     \quad\includegraphics[width=\imagescale\baselineskip, height=\imagescale\baselineskip]{tpack/cv/icons/github-240.png} \href{https://github.com/tr0fin0}{\myuline{tr0fin0}}\\
-    \noindent\includegraphics[width=\imagescale\baselineskip, height=\imagescale\baselineskip]{tpack/cv/icons/email-240.png} \href{mailto:guilherme.trofino@ensta-paris.fr}{\myuline{guilherme.trofino@ensta-paris.fr}}
-    \quad\includegraphics[width=\imagescale\baselineskip, height=\imagescale\baselineskip]{tpack/cv/icons/phone-240.png} +33 07 49 18 55 00
-    \quad\includegraphics[width=\imagescale\baselineskip, height=\imagescale\baselineskip]{tpack/cv/icons/location-240.png} Paris, France
+    \quad\includegraphics[width=\imagescale\baselineskip, height=\imagescale\baselineskip]{tpack/cv/icons/email-240.png} \href{mailto:gtrofinos@gmail.com}{\myuline{gtrofinos@gmail.com}}
+    \hfill\version
+    % \quad\includegraphics[width=\imagescale\baselineskip, height=\imagescale\baselineskip]{tpack/cv/icons/phone-240.png} +33 07 49 18 55 00
+    % \quad\includegraphics[width=\imagescale\baselineskip, height=\imagescale\baselineskip]{tpack/cv/icons/location-240.png} Paris, France
 }
 
 
