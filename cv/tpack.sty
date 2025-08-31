@@ -134,9 +134,11 @@
 
 %   localization variables
 \newcommand{\version}{
-    \IfLanguageName{english}{[EN]}{
-        \IfLanguageName{french}{[FR]}{
-            not defined
+    \IfLanguageName{english}{[EN VERSION]}{
+        \IfLanguageName{french}{[FR VERSION]}{
+            \IfLanguageName{french}{[FR VERSION]}{
+                not defined
+            }
         }
     }
 }
