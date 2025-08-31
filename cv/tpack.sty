@@ -150,7 +150,9 @@
 \newcommand*{\cvbody}{
     \IfLanguageName{english}{\subfile{translation/cv_en.tex}}{
         \IfLanguageName{french}{\subfile{translation/cv_fr.tex}}{
-            not defined
+            \IfLanguageName{portuguese}{\subfile{translation/cv_br.tex}}{
+                not defined
+            }
         }
     }
 }
